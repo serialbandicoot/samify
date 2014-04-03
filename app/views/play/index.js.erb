@@ -1,0 +1,37 @@
+<% html_value = []%>
+<% @samify.album_tracks.each_with_index do |track, index| %>
+   <% html_value << "#{index + 1}. #{track[0]}" %>
+<% end %>
+
+
+$("#songtracks").animate({'opacity': 0}, 1000, function () {
+                         $(this).html('<%= html_value.join(' ') %>');
+                         }).animate({'opacity': 1}, 1000);
+
+
+<% if @samify.yt_video_id.count > 0 then %>
+$("#playlist").animate({'opacity': 0}, 1000, function () {
+                         $(this).html('<iframe title="YouTube video player" width="350" height="350" src="<%= @samify.url %>"></iframe>');
+                         }).animate({'opacity': 1}, 1000);
+<% else %>
+
+$("#playlist").animate({'opacity': 0}, 1000, function () {
+                         $(this).html('Sorry no tracks were found');
+                         }).animate({'opacity': 1}, 1000);
+<% end %>
+
+
+
+$("#messages").animate({'opacity': 0}, 1000, function () {
+                         $(this).html('<%= @samify.msg if @samify.msg %>');
+                         }).animate({'opacity': 1}, 1000);
+
+
+
+
+
+
+
+
+
+

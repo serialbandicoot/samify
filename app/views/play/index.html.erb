@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+
+<div id="main">
+
+    <div id="header">
+        <h1>Samify</h1>
+        <p><%= t(:welcome_message) %></p>
+    </div>
+
+    <div id="search_and_results">
+
+        <div id="search_form" class="js_ajax_form">
+            <%= form_tag('play', :method => :get, :remote=>true) do %>
+               <%= text_field_tag :artist ,'', :placeholder => 'Enter Artists name', :class => 'input-xlarge js-artist-search' %>
+               <%= text_field_tag :album , '', :placeholder => 'Enter Album name', :class => 'input-xlarge js-album-search', :id => "album" %>
+               <div id="test"></div>
+               <br/>
+               <%= submit_tag "Search", :class => "btn btn-large btn-sample" %> <%= image_tag("spinner.gif", :id => 'spinner', :alt => "Loading....", :style => "display:none", :class => "spinner") %>
+            <% end %>
+        </div>
+
+
+        <div id="messages">
+        </div>
+
+        <div id="songtracks">
+        </div>
+
+
+    </div>
+
+    <br/>
+    <div id="playlist">
+    </div>
+
+
+</div>
+
+
+<div id="footer">
+  <%= link_to("Aphex75", "http://www.aphex75.co.uk", :target => "_blank") %>   |   <%= link_to("Lily and Max", "http://www.lilyandmax.co.uk", :target => "_blank") %>
+</div>

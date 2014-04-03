@@ -1,0 +1,8 @@
+<h1><% test = @results.map {|a| a.name} %></h1>
+
+
+<ul class='albums'>
+  <% test.each do |a| %>
+    <li><%= a %></li>
+  <% end %>
+</ul>
